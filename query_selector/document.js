@@ -35,6 +35,7 @@ let count=0;
 function incrementcounter(){
     
     const inc_count=document.getElementById('counter')
+   
     count++
 
     inc_count.innerText=count
@@ -44,6 +45,14 @@ function incrementcounter(){
 
     //setting the attribute for referencing at the decrementcounter
     li.setAttribute('data-counter',count)
+
+    if(count%2 === 0){
+        li.style.background='red'
+        li.style.padding='10px'
+    }
+    else{
+        li.style.background='yellow'
+    }
     li.innerHTML='<b>Sentence</b> '+ count
 
 
@@ -61,7 +70,7 @@ function decrementcounter(){
     // li.remove()
 
     //instead of doing the normal one while decrementing if we need decrement only the even numbers then do this
-    const number=parseInt(li.setAttribute('data-counter'),10)
+    const number=parseInt(li.getAttribute('data-counter'),10)
 
     if(number %2 === 0){
         li.remove()
